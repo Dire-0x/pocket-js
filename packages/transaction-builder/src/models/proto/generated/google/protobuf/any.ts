@@ -1,9 +1,5 @@
 /* eslint-disable */
-import * as proto from "protobufjs/minimal.js";
- 
-// @ts-ignore
-const { Reader, Writer } = proto.default
-
+import _m0 from "protobufjs/minimal";
 export const protobufPackage = "google.protobuf";
 
 /**
@@ -129,15 +125,15 @@ const baseAny: object = { typeUrl: "" };
 
 export const Any = {
   // @ts-ignore
-  encode(message: Any, writer: Writer = Writer.create()): Writer {
+  encode(message: Any, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     writer.uint32(10).string(message.typeUrl);
     writer.uint32(18).bytes(message.value);
     return writer;
   },
 
   // @ts-ignore
-  decode(input: Reader | Uint8Array, length?: number): Any {
-    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+  decode(input: _m0.Reader | Uint8Array, length?: number): Any {
+    const reader = input instanceof Uint8Array ? new _m0.Reader(input) : input;
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseAny } as Any;
     while (reader.pos < end) {
